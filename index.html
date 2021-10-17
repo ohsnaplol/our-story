@@ -4,14 +4,20 @@
 		<meta charset="utf-8">
 		<title>My first three.js app</title>
 		<link rel="stylesheet" href="style.css">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>	</head>
 		<script src="js/three.js" defer></script>
 		<script src="js/scene.js" defer></script>
+		<script>
+			let lines = ['the story takes place here array version'];
+		</script>
 	</head>
 	<body>
 		<div id="container">
-			<main id="hud">
-				<p>The story takes place here</p>
-				<form action="">
+			<main id="hud" x-data>
+				<div id="scrolling-text">
+					<p>The story takes place here</p>
+				</div>
+				<form @submit.prevent="lines.push('new message');">
 					<input type="text" id="text-input" placeholder="Enter text here">
 					<button type="submit">Submit</button>
 				</form>
