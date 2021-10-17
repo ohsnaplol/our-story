@@ -5,11 +5,27 @@
 		<title>My first three.js app</title>
 		<style>
 			body { margin: 0; }
+			#container {
+				position: relative;
+			}
+			#text-overlay {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				color:whitesmoke;
+				padding: 10px;
+				font-size: 5vw;
+				font-family: sans-serif;
+			}
 		</style>
+		<script src="js/three.js" defer></script>
+		<script src="js/scene.js" defer></script>
 	</head>
 	<body>
-		<script src="js/three.js"></script>
-		<script src="js/scene.js"></script>
-
+		<div id="container">
+			<main id="text-overlay">
+				<p>The story takes place here</p>
+			</main>
+		</div>
 	</body>
 </html>

@@ -9,7 +9,7 @@ const renderer = new THREE.WebGLRenderer();
  * if we want to lower render resolution, divide both args by two and set false as third arg
  */
 renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
+document.getElementById("container").appendChild(renderer.domElement);
 
 /** 
  * BoxGeometry creates a cube by default.
