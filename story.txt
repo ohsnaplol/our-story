@@ -1,0 +1,18 @@
+Genre: Survival/Exploration/Adventure 
+
+Interface: Text-based
+
+Story points: 
+    Setting - A vessel (ship/spaceship/station)
+    Inciting Incident - Propulsion/Navigation/Comms systems destroyed
+    Conflict - Identify the problem and the cause of the inciting incident 
+    Resolution - Get rescued or repair the damage
+
+Draft narrative: 
+    The player is jolted awake by a loud noise as the red emergency lights flicker on. The silence following the commotion implies something is wrong, and the eerie glow supports that the engines aren't functioning. The player must prepare to investigate this, and can grab a few items from their quarters before setting out. 
+
+    As the lone operator on this vessel, the player is the captain, engineer, and mechanic and capable of fixing most problems. Upon entering the engine room, however, the damage is immense: the engine appears to have violently exploded, shrapnel having damaged several systems and even punctured the hull. With the situation having become dire, the player must solve the immediate danger of the ruptured hull or quickly perish. 
+
+    Using welding tools from their quarters, the player can salvage some of the scrap metal from the damaged engine to patch the holes or find some other usable materials around the ship. Once the immediate danger has passed, the player can proceed to check the possibility of repair or try to radio for help. If they try to radio, they'll find it is dead and need to investigate why (possibly a cut wire from shrapnel). 
+
+    In order to repair the engine, the player must go through the ship to cannibalize other systems and components to make the parts needed. In order to fix the radio, the player must locate the damaged component and replace it, then survive until help arrives or the engine is repaired.
