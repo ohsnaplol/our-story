@@ -18,7 +18,7 @@
 	<body>
 		<div id="container">
 			<main id="hud" x-data="reactiveLines">
-				<template id="scrolling-text" x-for="line in reactiveLines">
+				<template id="scrolling-text" x-for="line in lines">
 					<li x-text="line"></li>
 				</template>
 				<form @submit.prevent="lines.push('new message');">
