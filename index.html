@@ -8,16 +8,17 @@
 		<script src="js/three.js" defer></script>
 		<script src="js/scene.js" defer></script>
 		<script defer>
-			// An attempt to use data outside of HTML
-			// document.addEventListener('alpine:init', () => {
-			// 	let reactiveLines = Alpine.reactive({ lines: ['the story takes place here'] });
-    	// });
+			document.addEventListener('alpine:init', () => {
+				Alpine.data('reactiveLines', () => ({
+					lines: ['the story takes place here']
+				}))
+    	});
 		</script>
 	</head>
 	<body>
 		<div id="container">
-			<main id="hud" x-data="{ lines: ['the story takes place here'] }">
-				<template id="scrolling-text" x-for="line in lines">
+			<main id="hud" x-data="reactiveLines">
+				<template id="scrolling-text" x-for="line in reactiveLines">
 					<li x-text="line"></li>
 				</template>
 				<form @submit.prevent="lines.push('new message');">
