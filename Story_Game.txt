@@ -1,0 +1,36 @@
+Scene 1: Waking Up
+
+Bedroom
+A loud crash shakes the ship, startling you awake. The noise echoes for a few moments before an all-consuming silence settles in the room. After a few seconds, the glow of emergency lights bathes your sleeping quarters in a dull red light. What in the world has happened? Perhaps you should look around to find the cause of this...
+
+[Grant player control]
+Actions: 
+    Look/Look around 
+        General - "The emergency lights make it hard to see, but you know the details of this room like the back of your hand. Your small cot seems at first glance spartan, but is actually quite comfortable. A tote full of your engineering tools sits in the corner where you always toss it after a long day repairing the various sections of the ship. A door to your left leads to the bathroom, dark and without an emergency light. A door to your right leads to the hallway."
+
+        Self - Disheveled, the circles under your eyes speak to the disturbance of your much needed sleep. Maybe you'll get the chance to grab some caffeine before you fix whatever broke...
+
+        Door_hall - A heavy hyper-alloy bulkhead. Closes by running current run though it which makes it heavier, so fortunately you'll still be able to open these without a charge-key. This one leads to the Hallway
+
+        Door_bathroom - A simple hinged door. With the power out, your bathroom is pitch-dark, but you know where the toilet is if needed.
+
+        Bed - A simple cot, but it's more comfortable than it looks. The sheets are tossed about thanks to your rather rude awakening...
+                [Alt] - Your neatly made bed looks so welcoming
+
+
+    
+    Open - 
+        Toolbag - You see a collection of your finest tools. Looks like you forgot to charge the Charge-key for the doors, but there should be power cells around here somewhere...
+            Multi-bit driver
+            Charge-key [depleted]
+            Adjustable wrench
+            Welder's Torch
+
+        Door_bathroom - It's dark, but you quickly take care of business. 
+                [Alt] - There's no need to use the bathroom now
+        
+        Door_hall - You lift the door easily and can now enter the hallway
+
+    Interact - 
+        Bed - Make bed | Grab sheet | Go to bed
+        Tools - 
