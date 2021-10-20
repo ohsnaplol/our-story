@@ -36,3 +36,10 @@ Actions:
         Tools - Picked up <Tool> and are ready to use it
             [Alt] The <Tool> is out of power. If you can find a charged cell it should work
             [Alt] You put away the <Tool>. 
+
+
+
+Hallway
+Actions:
+    Look/Look around
+        General - The hall by your room. There's 3 doors in sight and it stretches to a left turn or a dead end on the right. 
