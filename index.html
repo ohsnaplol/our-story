@@ -10,7 +10,12 @@
 		<script defer>
 			document.addEventListener('alpine:init', () => {
 				Alpine.data('reactiveLines', () => ({
-					lines: ['the story takes place here']
+					playerInput: '',
+					lines: ['the story takes place here'],
+					submitInput() {
+						this.lines.push(this.playerInput);
+						this.playerInput = '';
+					}
 				}))
     	});
 		</script>
@@ -21,8 +26,8 @@
 				<template id="scrolling-text" x-for="line in lines">
 					<li x-text="line"></li>
 				</template>
-				<form @submit.prevent="lines.push('new message');">
-					<input type="text" id="text-input" placeholder="Enter text here">
+				<form @submit.prevent="submitInput">
+					<input type="text" id="text-input" x-model="playerInput" placeholder="Enter text here">
 					<button type="submit">Submit</button>
 				</form>
 			</main>
