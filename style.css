@@ -10,6 +10,8 @@ body { margin: 0; }
   padding: 10px;
   font-size: 5vw;
   font-family: sans-serif;
+  overflow: scroll;
+  height: 100%;
 }
 #hud p {
   margin: 0;
