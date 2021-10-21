@@ -1,6 +1,4 @@
 // tutorial: https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene
-// Imported from https://cdn.skypack.dev/three
-import * as THREE from 'https://cdn.skypack.dev/-/three@v0.133.1-a8rkd0QTHl2tMZXZJAEw/dist=es2020,mode=imports/optimized/three.js';
 
 const scene = new THREE.Scene();
 // first arg is fov, second is aspect ratio, third is near clipping plane, fourth is far clipping plane
