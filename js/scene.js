@@ -1,4 +1,6 @@
 // tutorial: https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene
+import * as THREE from 'https://cdn.skypack.dev/pin/three@v0.133.1-a8rkd0QTHl2tMZXZJAEw/mode=imports/optimized/three.js';
+
 const scene = new THREE.Scene();
 // first arg is fov, second is aspect ratio, third is near clipping plane, fourth is far clipping plane
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
