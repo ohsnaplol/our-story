@@ -13,7 +13,7 @@ body {
   padding: 10px;
   font-size: 5vw;
   font-family: sans-serif;
-  overflow: scroll;
+  overflow: hidden;
   height: 100%;
   width: 100%;
 }
