@@ -30,7 +30,7 @@
 					<li x-text="line"></li>
 				</template>
 				<form @submit.prevent="submitInput">
-					<input type="text" id="text-input" x-model="playerInput" placeholder="Enter text here">
+					<input autocomplete="off" type="text" id="text-input" x-model="playerInput" placeholder="Enter text here">
 					<button type="submit" x-bind:disabled="buttonEnabled">Submit</button>
 				</form>
 			</main>
