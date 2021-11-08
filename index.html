@@ -18,6 +18,9 @@
 					},
 					buttonEnabled() {
 						return !this.playerInput.length > 0;
+					},
+					buttonShow() {
+						return this.playerInput.length > 0;
 					}
 				}))
     	});
@@ -31,7 +34,7 @@
 				</template>
 				<form @submit.prevent="submitInput">
 					<input autocomplete="off" type="text" id="text-input" x-model="playerInput" placeholder="Enter text here">
-					<button type="submit" x-bind:disabled="buttonEnabled">Submit</button>
+					<button type="submit" id="submit" x-show="buttonShow" x-bind:disabled="buttonEnabled" x-transition>Submit</button>
 				</form>
 			</main>
 		</div>
