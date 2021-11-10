@@ -1,0 +1,47 @@
+Classes:
+
+Room
+    Room Description
+    Objects Within
+    Portals Within
+
+
+Actions
+    Name
+    Description
+    Requirements
+    Changes to Inventory (does it break)
+    Changes to Global Gamestate / Objectives
+    Description of Result of action being done
+    
+    
+Thing //named after data structure in Doom :)
+    Description
+    List of Actionables - corresponds to action "doable" with/onto the object
+        Description of action
+            -Overwrites built in Description of action object
+        
+        Bool: Can be put into Inventory?
+
+
+Portals - Dorways / links to other rooms
+    Description
+    Reference to Other Room
+        Description of Travel
+
+CREATURES
+    Universal Actions
+        Actions that can be done no matter the context
+    Contextual Actions 
+        Actions that can be done on specific objects
+    Inventory
+        List of Thing Objects
+
+
+    Creatures :: Player
+        Inherit from Creatures
+
+    Creatures :: NPCS
+        Inherit from Creatures
+     
+
