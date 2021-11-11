@@ -29,8 +29,20 @@ body {
   background: transparent;
   border-bottom: 1px solid gray;
 }
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#scrolling-text-container {
+  flex: 1;
+  display: flex;
+  overflow: auto;
+}
 #scrolling-text {
-  flex-grow: 1;
+  display: flex;
+  min-height: min-content;
+  flex-direction: column;
 }
 #form {
   flex-shrink: 1;
