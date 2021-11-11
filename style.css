@@ -6,6 +6,8 @@ body {
   position: relative;
 }
 #hud {
+  display: flex;
+  flex-direction: column;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -26,4 +28,10 @@ body {
   outline: 0;
   background: transparent;
   border-bottom: 1px solid gray;
+}
+#scrolling-text {
+  flex-grow: 1;
+}
+#form {
+  flex-shrink: 1;
 }
