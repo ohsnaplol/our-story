@@ -5,6 +5,9 @@ document.addEventListener('alpine:init', () => {
     submitInput() {
       this.lines.push(this.playerInput);
       this.playerInput = '';
+      // scroll input into view
+      let element = document.getElementById('scrolling-text-wrapper').lastElementChild
+      element.scrollIntoView();
     },
     buttonEnabled() {
       return !this.playerInput.length > 0;
