@@ -7,6 +7,8 @@ body {
 }
 #hud {
   position: absolute;
+  display: grid;
+  grid-template-rows: auto 1fr;
   bottom: 0;
   left: 0;
   color:whitesmoke;
@@ -16,14 +18,20 @@ body {
   overflow: hidden;
   width: 100%;
 }
-#hud p {
-  margin: 0;
-  padding: 0;
-}
 #hud input {
   color: whitesmoke;
   border: 0;
   outline: 0;
   background: transparent;
   border-bottom: 1px solid gray;
+}
+#scrolling-text-wrapper {
+  max-height: 90vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+#scrolling-text-wrapper::-webkit-scrollbar {
+  display: none;
 }
