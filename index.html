@@ -12,11 +12,11 @@
 	<body>
 		<div id="container">
 			<main id="hud" x-data="reactiveLines">
-				<div id="scrolling-text-wrapper">
+				<ol id="scrolling-text-wrapper">
 					<template id="scrolling-text" x-for="line in lines">
 						<li x-text="line"></li>
 					</template>
-				</div>
+				</ol>
 				<form @submit.prevent="submitInput">
 					<input autocomplete="off" type="text" id="text-input" x-model="playerInput" placeholder="Enter text here">
 					<button type="submit" id="submit" x-show="buttonShow" x-bind:disabled="buttonEnabled" x-transition>Submit</button>
