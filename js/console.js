@@ -22,12 +22,15 @@ document.addEventListener('alpine:init', () => {
       })
       return wrappedWords.join(" ")
     },
-    submitInput() {
-      this.lines.push(this.playerInput);
-      this.playerInput = '';
+    sendInputToStory(input) {
+      this.lines.push(input);
       // scroll input into view
       let element = document.getElementById('scrolling-text-wrapper').lastElementChild
       element.scrollIntoView();
+    },
+    submitInput() {
+      this.sendInputToStory(this.playerInput);
+      this.playerInput = '';
     },
     buttonEnabled() {
       return !this.playerInput.length > 0;
