@@ -14,7 +14,7 @@
 			<main id="hud" x-data="reactiveLines">
 				<ol id="scrolling-text-wrapper">
 					<template id="scrolling-text" x-for="line in lines">
-						<li x-text="line"></li>
+						<li x-html="line"></li>
 					</template>
 				</ol>
 				<form @submit.prevent="submitInput">
