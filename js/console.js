@@ -14,7 +14,7 @@ document.addEventListener('alpine:init', () => {
         if (word.startsWith(DELIMITER)) {
           const wordWithoutDelimiters = word.substring(DELIMITER.length, word.length - DELIMITER.length)
           const choices = line.choices[wordWithoutDelimiters]
-          const choicesAsOptions = choices.map(choice => `<option value="${choice}">${choice}</option>`)
+          const choicesAsOptions = [`<option value="">${wordWithoutDelimiters}</option>`, ...choices.map(choice => `<option value="${choice}">${choice}</option>`)]
           const wordAsHTMLDropdown = `<select>${choicesAsOptions.join("")}</select>`
           return wordAsHTMLDropdown
         }
