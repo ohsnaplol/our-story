@@ -14,7 +14,24 @@
 			<main id="hud" x-data="reactiveLines">
 				<ol id="scrolling-text-wrapper">
 					<template id="scrolling-text" x-for="line in lines">
-						<li x-html="line"></li>
+						<!-- Thanks to allain on Alpine.js Discord -->
+						<li>
+							<template x-for="token of lineTokens">
+								<span>
+									<template x-if="token.type === 'choice'">
+										<select @change="line.choices[token.name] = $event.target.value">
+											<option>--Choose--</option>
+											<template x-for="option of token.options">
+												<option :value="option" x-text="option"></option>
+											</template>
+										</select>
+									</template>
+									<template x-if="token.type === 'text'">
+										<span x-text="token.text"></span>
+									</template>
+								</span>
+							</template>
+						</li>
 					</template>
 				</ol>
 				<form @submit.prevent="submitInput">

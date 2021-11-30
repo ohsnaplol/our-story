@@ -3,24 +3,27 @@ const DELIMITER = "**"
 
 document.addEventListener('alpine:init', () => {
   Alpine.data('reactiveLines', () => ({
-    init() {
-      this.lines.push(this.renderLine(line1))
-    },
     playerInput: '',
-    lines: [],
-    renderLine: function(line){
-      const words = line.text.split(" ")
-      const wrappedWords = words.map(word => {
-        if (word.startsWith(DELIMITER)) {
-          const wordWithoutDelimiters = word.substring(DELIMITER.length, word.length - DELIMITER.length)
-          const choices = line.choices[wordWithoutDelimiters]
-          const choicesAsOptions = [`<option value="">${wordWithoutDelimiters}</option>`, ...choices.map(choice => `<option value="${choice}">${choice}</option>`)]
-          const wordAsHTMLDropdown = `<select class="choice-dropdown">${choicesAsOptions.join("")}</select>`
-          return wordAsHTMLDropdown
+    lines: [{
+      text: "the **story** takes **place** here",
+      options: { "story": ["read", "write"], "place": ["seek"]},
+      choices: {}
+    },],
+    get lineTokens() {
+      return this.lines[0].text.split(/\s+/g).map(t => {
+        if (t.startsWith(DELIMITER)) {
+          const choiceName = t.replaceAll(DELIMITER, "");
+          return {
+            type: "choice",
+            name: choiceName,
+            options: this.line.options[choiceName]
+          }
         }
-        return word
+        return {
+          type: "text",
+          text: t
+        }
       })
-      return wrappedWords.join(" ")
     },
     sendInputToStory(input) {
       this.lines.push(input);
@@ -39,9 +42,4 @@ document.addEventListener('alpine:init', () => {
       return this.playerInput.length > 0;
     }
   }))
-
-  const line1 = { 
-    text: "the **story** takes **place** here",
-    choices: { "story": ["read", "write"], "place": ["seek"]}
-  }
 });
