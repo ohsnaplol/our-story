@@ -6,7 +6,10 @@ document.addEventListener('alpine:init', () => {
     playerInput: '',
     lines: [{
       text: "the **story** takes **place** here",
-      options: { "story": ["read", "write"], "place": ["seek"]},
+      options: { "story": ["read", "write"], "place": ["seek"]}
+    },{
+      text: "the **candle** burns",
+      options: { "candle": ["put out", "douse"] }
     },],
     lineTokens(i) {
       return this.lines[i].text.split(/\s+/g).map(t => {
