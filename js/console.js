@@ -9,8 +9,8 @@ document.addEventListener('alpine:init', () => {
       options: { "story": ["read", "write"], "place": ["seek"]},
       choices: {}
     },],
-    get lineTokens() {
-      return this.lines[0].text.split(/\s+/g).map(t => {
+    lineTokens(i) {
+      return this.lines[i].text.split(/\s+/g).map(t => {
         if (t.startsWith(DELIMITER)) {
           const choiceName = t.replaceAll(DELIMITER, "");
           return {

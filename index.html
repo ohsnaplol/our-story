@@ -13,10 +13,10 @@
 		<div id="container">
 			<main id="hud" x-data="reactiveLines">
 				<ol id="scrolling-text-wrapper">
-					<template id="scrolling-text" x-for="line in lines">
+					<template id="scrolling-text" x-for="(line, index) in lines">
 						<!-- Thanks to allain on Alpine.js Discord -->
 						<li>
-							<template x-for="token of lineTokens">
+							<template x-for="token of lineTokens(index)">
 								<span>
 									<template x-if="token.type === 'choice'">
 										<select @change="line.choices[token.name] = $event.target.value">
