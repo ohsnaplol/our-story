@@ -12,25 +12,25 @@ document.addEventListener('alpine:init', () => {
       options: { "candle": ["put out", "douse"] }
     },],
     lineTokens(i) {
-      return this.lines[i].text.split(/\s+/g).map(t => {
-        if (t.startsWith(DELIMITER)) {
-          const choiceName = t.replaceAll(DELIMITER, "");
+      return this.lines[i].text.split(/\s+/g).map(word => {
+        if (word.startsWith(DELIMITER)) {
+          const interactable = word.replaceAll(DELIMITER, "");
           return {
             type: "choice",
-            name: choiceName,
-            options: this.line.options[choiceName]
+            name: interactable,
+            options: this.line.options[interactable]
           }
         }
         return {
           type: "text",
-          text: t
+          text: word
         }
       })
     },
     onSelect(action, object) {
-      this.sendInputToStory(`You ${action} ${object}`)
+      this.sendToStory(`You ${action} ${object}`)
     },
-    sendInputToStory(input, options) {
+    sendToStory(input, options) {
       this.lines.push({
         text: input,
         options
@@ -40,7 +40,7 @@ document.addEventListener('alpine:init', () => {
       element.scrollIntoView();
     },
     submitInput() {
-      this.sendInputToStory(this.playerInput);
+      this.sendToStory(this.playerInput);
       this.playerInput = '';
     },
     buttonEnabled() {
