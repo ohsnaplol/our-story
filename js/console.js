@@ -27,9 +27,10 @@ document.addEventListener('alpine:init', () => {
         }
       })
     },
-    sendInputToStory(input) {
+    sendInputToStory(input, options) {
       this.lines.push({
-        text: input
+        text: input,
+        options
       });
       // scroll input into view
       let element = document.getElementById('scrolling-text-wrapper').lastElementChild
