@@ -20,7 +20,7 @@
 								<span>
 									<template x-if="token.type === 'choice'">
 										<select @change="line.choices[token.name] = $event.target.value">
-											<option>--Choose--</option>
+											<option x-text="token.name"></option>
 											<template x-for="option of token.options">
 												<option :value="option" x-text="option"></option>
 											</template>
