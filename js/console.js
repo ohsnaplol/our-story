@@ -35,9 +35,8 @@ document.addEventListener('alpine:init', () => {
         text: input,
         options
       });
-      // scroll input into view
-      let element = document.getElementById('scrolling-text-wrapper').lastElementChild
-      element.scrollIntoView();
+      let recentLine = document.getElementById('scrolling-text-wrapper').lastElementChild
+      recentLine.scrollIntoView();
     },
     submitInput() {
       this.sendToStory(this.playerInput);
