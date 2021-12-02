@@ -7,7 +7,6 @@ document.addEventListener('alpine:init', () => {
     lines: [{
       text: "the **story** takes **place** here",
       options: { "story": ["read", "write"], "place": ["seek"]},
-      choices: {}
     },],
     lineTokens(i) {
       return this.lines[i].text.split(/\s+/g).map(t => {
