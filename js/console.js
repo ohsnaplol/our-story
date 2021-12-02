@@ -27,6 +27,9 @@ document.addEventListener('alpine:init', () => {
         }
       })
     },
+    onSelect(action, object) {
+      this.sendInputToStory(`You ${action} ${object}`)
+    },
     sendInputToStory(input, options) {
       this.lines.push({
         text: input,
