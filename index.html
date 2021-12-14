@@ -7,19 +7,20 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 		<script src="js/three.js" defer></script>
 		<script type="module" src="js/scene.js" defer></script>
+		<script src="js/lines.js"></script>
 		<script src="js/console.js"></script>
 	</head>
 	<body>
 		<div id="container">
 			<main id="hud" x-data="reactiveLines">
 				<ol id="scrolling-text-wrapper">
-					<template id="scrolling-text" x-for="(line, index) in lines">
+					<template id="scrolling-text" x-for="(line, index) in $store.lines.lines">
 						<!-- Thanks to allain on Alpine.js Discord -->
 						<li>
-							<template x-for="token of lineTokens(index)">
+							<template x-for="token of $store.lines.lineTokens(index)">
 								<span>
 									<template x-if="token.type === 'choice'">
-										<select @change="onSelect($event.target.value, token.name)">
+										<select @change="$store.lines.onSelect($event.target.value, token.name)">
 											<option x-text="token.name"></option>
 											<template x-for="option of token.options">
 												<option :value="option" x-text="option"></option>
