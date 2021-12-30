@@ -40,3 +40,6 @@ body {
 #scrolling-text-wrapper::-webkit-scrollbar {
   display: none;
 }
+.choice-dropdown {
+  font-size: inherit;
+}

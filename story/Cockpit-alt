@@ -1,0 +1,12 @@
+state: navigation.powered_off, ship.isbroken, current_destination.alcatraz
+interactables: navigation, airlock, shields, door_Hallway, captain_Chair, window, monitors, power
+
+on navigation.powered_off look:                   "The navigation display is dark"
+on navigation.powered_off operate:                "Without power, the display is inoperable"
+on navigation.powered_off investigate:            "The navigation system! I'll need to get this powered if I want to reach the station."
+on navigation.powered_off power & ship.isbroken:  "You push the power button... but nothing happens. The power is still out"
+on navigation.powered_off power & ship.isfixed:   "You push the power button... and the holographic display flickers to life"->navigation.powered_on
+
+on navigation.powered_on look:    "Various stars and planets swirl around the holographic display."
+on navigation.powered_on operate: "The navigation interface appears: >Current destination: ${current_destination} -Change Destination -Scan coordinates -Exit"
+on navigation.powered_on power:   "You push the power button...and the display folds into itself before going dark"

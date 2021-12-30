@@ -7,19 +7,37 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 		<script src="js/three.js" defer></script>
 		<script type="module" src="js/scene.js" defer></script>
+		<script src="js/lines.js"></script>
 		<script src="js/console.js"></script>
 	</head>
 	<body>
 		<div id="container">
 			<main id="hud" x-data="reactiveLines">
 				<ol id="scrolling-text-wrapper">
-					<template id="scrolling-text" x-for="line in lines">
-						<li x-text="line"></li>
+					<template id="scrolling-text" x-for="(line, index) in $store.lines.lines">
+						<!-- Thanks to allain on Alpine.js Discord -->
+						<li>
+							<template x-for="token of $store.lines.lineTokens(index)">
+								<span>
+									<template x-if="token.type === 'choice'">
+										<select @change="$store.lines.onSelect($event.target.value, token.name)">
+											<option x-text="token.name"></option>
+											<template x-for="option of token.options">
+												<option :value="option" x-text="option"></option>
+											</template>
+										</select>
+									</template>
+									<template x-if="token.type === 'text'">
+										<span x-text="token.text"></span>
+									</template>
+								</span>
+							</template>
+						</li>
 					</template>
 				</ol>
 				<form @submit.prevent="submitInput">
 					<input autocomplete="off" type="text" id="text-input" x-model="playerInput" placeholder="Enter text here">
-					<button type="submit" id="submit" x-show="buttonShow" x-bind:disabled="buttonEnabled" x-transition>Submit</button>
+					<button type="submit" id="submit" x-show="playerInput.length" x-bind:disabled="playerInput.length < 0" x-transition>Submit</button>
 				</form>
 			</main>
 		</div>

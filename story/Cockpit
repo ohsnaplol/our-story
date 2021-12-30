@@ -1,0 +1,64 @@
+Interactables navigation airlock shields door_Hallway captain_Chair window monitors power
+
+description_Act0=The control center of the ship. The red emergency lights are the only things on: something's cut engine power. 
+description_Act1=The control center of the ship. With power restored, the primary systems can be managed here. 
+description_Act2=The control center of the ship. What would the captain like to do?
+
+navigation_Actions[Look, Investigate, Operate, Power]
+  powered_State[True, False]
+  
+  if the powered_State is False
+    Look{"The navigation display is dark"}
+    Operate{"Without power, the display is inoperable"}
+    Power{"You push the power button..."}
+        if the ship_Power is Fixed
+            powered_State = True
+            "and the holographic display flickers to life."
+        if the ship_Power is Broken
+            "but nothing happens. The power is still out." 
+    Investigate{"The navigation system! I'll need to get this powered if I want to reach the station.}
+
+  if the powered_State is True
+    Look{"Various stars and planets swirl around the holographic display.}
+    Operate{"The navigation interface appears: ">Current destination: [current_destination] -Change Destination -Scan coordinates -Exit" }
+    Power{You push the power button...and the display folds into itself before going dark}
+        powered_State = False
+    Investigate{}
+
+airlock[Look, Investigate, Operate]
+  powered_State[True, False]
+  if the powered_State is False
+
+  if the powered_State is True
+
+shields[Look, Investigate, Operate]
+  powered_State[True, False]
+  if the powered_State is False
+
+  if the powered_State is True
+
+door_Hallway[Look, Investigate, Enter]
+  powered_State[True, False]
+  if the powered_State is False
+
+  if the powered_State is True
+
+captain_Chair[Look, Investigate, Sit, Leave]
+
+window[Look, Investigate]
+  powered_State[True, False]
+  if the powered_State is False
+
+  if the powered_State is True
+
+monitors[Look, Investigate, Power]
+  powered_State[True, False]
+  if the powered_State is False
+
+  if the powered_State is True
+
+power[Look, Investigate, Operate]
+  powered_State[True, False]
+  if the powered_State is False
+
+  if the powered_State is True

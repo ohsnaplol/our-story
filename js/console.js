@@ -1,19 +1,13 @@
+
 document.addEventListener('alpine:init', () => {
   Alpine.data('reactiveLines', () => ({
     playerInput: '',
-    lines: ['the story takes place here'],
+    onSelect(action, object) {
+      Alpine.store('lines').send(`You ${action} ${object}`)
+    },
     submitInput() {
-      this.lines.push(this.playerInput);
+      Alpine.store('lines').send(this.playerInput);
       this.playerInput = '';
-      // scroll input into view
-      let element = document.getElementById('scrolling-text-wrapper').lastElementChild
-      element.scrollIntoView();
-    },
-    buttonEnabled() {
-      return !this.playerInput.length > 0;
-    },
-    buttonShow() {
-      return this.playerInput.length > 0;
     }
   }))
 });
