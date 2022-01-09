@@ -7,16 +7,19 @@ on left_door look:"It is halfway open and smoke is billowing out"
 on left_door.broken open:"It won't budge and its really hot"
 on left_door hit:"It opens up"->left_door.open
 on left_door.open enter:"I walk through with smoke in my face"->goto room_2`
+const COMMAND_DELIMITER = '\n'
+const COMMENT_DELIMITER = '//'
+const KEYWORD_DELIMITER = ':'
 
-const lines = string.split('\n');
+const lines = string.split(COMMAND_DELIMITER);
 const cleanLines = lines.filter(line => {
-  if (line == '' || line.startsWith('//')) {
+  if (line == '' || line.startsWith(COMMENT_DELIMITER)) {
     return false;
   }
   return true;
 })
 const commands = cleanLines.map(line => {
-  return line.split(':')
+  return line.split(KEYWORD_DELIMITER)
 })
 commands.forEach((group, index) => {
   if (group.length != 2) {
