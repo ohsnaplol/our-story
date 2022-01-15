@@ -37,8 +37,9 @@ class Story {
       const keyword = group[0]
       const action = group[1]
       if (keyword === 'state') {
-        const states = action.split(',')
-        this.states.push(trimmedStates = states.map(state => state.trim()))
+        const statesAsArray = action.split(',')
+        const statesToObjectReducer = (previousValue, currentValue) => ({... previousValue, [currentValue.split(STATE_VALUE_DELIMITER)[0].trim()]: currentValue.split(STATE_VALUE_DELIMITER)[1].trim()})
+        this.state = statesAsArray.reduce(statesToObjectReducer, {})
       }
       if (keyword === 'interactables') {
         const interactables = action.split(',')
