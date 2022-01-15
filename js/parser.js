@@ -19,6 +19,7 @@ class Story {
 
     this.state
     this.interactables
+    this.events
 
     const lines = string.split(COMMAND_DELIMITER);
     const cleanLines = lines.filter(line => {
@@ -47,8 +48,9 @@ class Story {
         this.interactables = interactables.map(interactable => interactable.trim())
       }
       if (keyword.startsWith('on')) {
-        const [on, event, verb] = keyword.split(' ')
-        console.log('event\n', event, verb, '\n', action)
+        const [event, verb] = keyword.split(' ').filter(word => word != 'on')
+        console.log(event, verb, action)
+        // console.log('event\n', event, verb, '\n', action)
       }
     });
   }
