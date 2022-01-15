@@ -42,7 +42,7 @@ class Story {
       }
       if (keyword === 'interactables') {
         const interactables = action.split(',')
-        this.interactables.push(interactables.map(interactable => interactable.trim()))
+        this.interactables = interactables.map(interactable => interactable.trim())
       }
       if (keyword.startsWith('on')) {
         const [on, event, verb] = keyword.split(' ')
