@@ -1,4 +1,4 @@
-const string = `
+const mystring = `
 state: left_door.broken,right_door.open
 interactables:left_door, right_door
 
@@ -54,3 +54,6 @@ class Story {
   }
 }
 
+let MyStory = new Story(mystring)
+console.log(MyStory.state)
+console.log(MyStory.interactables)
