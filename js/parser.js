@@ -15,6 +15,7 @@ class Story {
     const COMMAND_DELIMITER = '\n'
     const COMMENT_DELIMITER = '//'
     const KEYWORD_DELIMITER = ':'
+    const STATE_VALUE_DELIMITER = '.'
 
     this.state = []
     this.interactables = []
