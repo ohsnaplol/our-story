@@ -51,10 +51,6 @@ class Story {
         console.log('event\n', event, verb, '\n', action)
       }
     });
-
-  }
-
-  loadStates() {
-
   }
 }
+
