@@ -17,8 +17,8 @@ class Story {
     const KEYWORD_DELIMITER = ':'
     const STATE_VALUE_DELIMITER = '.'
 
-    this.state = []
-    this.interactables = []
+    this.state
+    this.interactables
 
     const lines = string.split(COMMAND_DELIMITER);
     const cleanLines = lines.filter(line => {
