@@ -22,7 +22,7 @@ class Story {
     // array of objects
     this.interactables
     // ???
-    this.events
+    this.events = []
 
     // Split string up into an array of commands
     const lines = string.split(COMMAND_DELIMITER);
@@ -59,8 +59,9 @@ class Story {
       }
       if (keyword.startsWith('on')) {
         const [event, verb] = keyword.split(' ').filter(word => word != 'on')
-        console.log(event, verb, action)
-        // console.log('event\n', event, verb, '\n', action)
+        this.events.push({
+          event, verb, action
+        })
       }
     });
   }
