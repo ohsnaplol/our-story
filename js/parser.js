@@ -1,14 +1,3 @@
-const mystring = `
-state: left_door.broken,right_door.open
-interactables:left_door, right_door
-
-// Events syntax👉 on interactable.state action "I'm a great writer, read this!" -> goto room_name or event or interactable.new_state?
-on room_enter:"It is really creepy in here. There is a **door on the left** and a **door on the right**"
-on left_door look:"It is halfway open and smoke is billowing out"
-on left_door.broken open:"It won't budge and its really hot"
-on left_door hit:"It opens up"->left_door.open
-on left_door.open enter:"I walk through with smoke in my face"->goto room_2`
-
 class Story {
 
   constructor(string) {
@@ -16,6 +5,7 @@ class Story {
     const COMMENT_DELIMITER = '//'
     const KEYWORD_DELIMITER = ':'
     const STATE_VALUE_DELIMITER = '.'
+    const ACTION_DELIMITER = '->'
 
     // object with properties being the object and the value being the state
     this.state
@@ -60,14 +50,12 @@ class Story {
       }
       if (keyword.startsWith('on')) {
         const [event, verb] = keyword.split(' ').filter(word => word != 'on')
+        const [text, realAction] = action.split(ACTION_DELIMITER)
         this.events.push({
-          event, verb, action
+          event, verb, text: text.replaceAll("\"", ""), realAction
         })
       }
     });
   }
 }
 
-let MyStory = new Story(mystring)
-console.log(MyStory.state)
-console.log(MyStory.interactables)
