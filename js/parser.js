@@ -21,7 +21,8 @@ class Story {
     this.state
     // array of objects
     this.interactables
-    // ???
+    // array of objects with properties event, verb, action
+    // used to print interactables, manage state changes on interactions, or call new objects (i.e. changing rooms)
     this.events = []
 
     // Split string up into an array of commands
