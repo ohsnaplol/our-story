@@ -17,28 +17,38 @@ class Story {
     const KEYWORD_DELIMITER = ':'
     const STATE_VALUE_DELIMITER = '.'
 
+    // object with properties being the object and the value being the state
     this.state
+    // array of objects
     this.interactables
+    // ???
     this.events
 
+    // Split string up into an array of commands
     const lines = string.split(COMMAND_DELIMITER);
+    // Remove commented lines from our array of commands
     const cleanLines = lines.filter(line => {
       if (line == '' || line.startsWith(COMMENT_DELIMITER)) {
         return false;
       }
       return true;
     })
+    // Convert array of commands into an array of commands split up by the keyword delimiter
     const commands = cleanLines.map(line => {
       return line.split(KEYWORD_DELIMITER)
     })
+    // For each command...
     commands.forEach((group, index) => {
+      // If the line split generated a group larger than two, there must have been a mistake
       if (group.length != 2) {
         console.error('Syntax error on line ', group)
         return;
       }
       const keyword = group[0]
       const action = group[1]
+      // Extract state, interactables, and events into data structures
       if (keyword === 'state') {
+        // Convert the state array to an object
         const statesAsArray = action.split(',')
         const statesToObjectReducer = (previousValue, currentValue) => ({... previousValue, [currentValue.split(STATE_VALUE_DELIMITER)[0].trim()]: currentValue.split(STATE_VALUE_DELIMITER)[1].trim()})
         this.state = statesAsArray.reduce(statesToObjectReducer, {})
