@@ -12,7 +12,6 @@ on left_door.broken open:"It won't budge and its really hot"
 on left_door hit:"It opens up"->left_door.open
 on left_door.open enter:"I walk through with smoke in my face"->goto room_2`
 document.addEventListener('alpine:init', () => {
-  console.log('lets load the class')
   let MyStory = new Story(mystring)
   Alpine.store('lines', {
     lines: [],
