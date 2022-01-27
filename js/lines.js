@@ -1,4 +1,4 @@
-import defaultExport from './parser.js'
+import Story from './parser.js'
 // constants
 const DELIMITER = "**"
 const mystring = `
