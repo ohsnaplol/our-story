@@ -1,3 +1,4 @@
+import defaultExport from './parser.js'
 // constants
 const DELIMITER = "**"
 const mystring = `

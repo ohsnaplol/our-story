@@ -1,4 +1,4 @@
-class Story {
+export default class Story {
 
   constructor(string) {
     const COMMAND_DELIMITER = '\n'
