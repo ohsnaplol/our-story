@@ -13,7 +13,7 @@ export default class Story {
     this.interactables
     // array of objects with properties event, verb, action
     // used to print interactables, manage state changes on interactions, or call new objects (i.e. changing rooms)
-    this.events = []
+    this.events = {}
 
     // Split string up into an array of commands
     const lines = string.split(COMMAND_DELIMITER);
@@ -49,11 +49,12 @@ export default class Story {
         this.interactables = interactables.map(interactable => interactable.trim())
       }
       if (keyword.startsWith('on')) {
-        const [event, verb] = keyword.split(' ').filter(word => word != 'on')
+        const [interactable, verb] = keyword.split(' ').filter(word => word != 'on')
         const [text, realAction] = action.split(ACTION_DELIMITER)
-        this.events.push({
-          event, verb, text: text.replaceAll("\"", ""), realAction
-        })
+        const [object, state] = interactable.split(STATE_VALUE_DELIMITER)
+        this.events[object] = {
+          state, verb, text: text.replaceAll("\"", ""), realAction
+        }
       }
     });
   }
