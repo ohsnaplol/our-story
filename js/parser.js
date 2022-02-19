@@ -58,5 +58,11 @@ export default class Story {
       }
     });
   }
+
+  submit(action, object) {
+    // search through events array for object and its corresponding action
+    const { realACtion, state, text, verb } = this.events[action]
+    return { realACtion, state, text, verb }
+  }
 }
 
