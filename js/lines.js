@@ -12,7 +12,6 @@ on left_door.broken open:"It won't budge and its really hot"
 on left_door hit:"It opens up"->left_door.open
 on left_door.open enter:"I walk through with smoke in my face"->goto room_2`
 document.addEventListener('alpine:init', () => {
-  let MyStory = new Story(mystring)
   Alpine.store('lines', {
     lines: [],
     // Thanks to allain on Alpine.js Discord
@@ -38,10 +37,14 @@ document.addEventListener('alpine:init', () => {
     send(input, options) {
       this.lines.push({
         text: input,
-        options
+        options // structure: { "thing1": ["option1", "option2"], "thing2": "option1"}
       });
       let recentLine = document.getElementById('scrolling-text-wrapper').lastElementChild
       recentLine.scrollIntoView();
     }
   })
+  let MyStory = new Story(mystring)
+  const result = MyStory.submit('room_enter')
+  console.log(result)
+  Alpine.store('lines').send(result.text, {"door" : ['hi', 'he']})
 })
