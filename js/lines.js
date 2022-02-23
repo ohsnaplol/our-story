@@ -13,6 +13,11 @@ on left_door hit:"It opens up"->left_door.open
 on left_door.open enter:"I walk through with smoke in my face"->goto room_2`
 document.addEventListener('alpine:init', () => {
   Alpine.store('lines', {
+    init() {
+      let MyStory = new Story(mystring)
+      const result = MyStory.submit('room_enter')
+      this.send(result.text, {"door" : ['hi', 'he']})
+    },
     lines: [],
     // Thanks to allain on Alpine.js Discord
     lineTokens(i) {
@@ -43,8 +48,4 @@ document.addEventListener('alpine:init', () => {
       recentLine.scrollIntoView();
     }
   })
-  let MyStory = new Story(mystring)
-  const result = MyStory.submit('room_enter')
-  console.log(result)
-  Alpine.store('lines').send(result.text, {"door" : ['hi', 'he']})
 })
