@@ -6,7 +6,7 @@ state: left_door.broken,right_door.open
 interactables:left_door, right_door
 
 // Events syntax👉 on interactable.state action "I'm a great writer, read this!" -> goto room_name or event or interactable.new_state?
-on room_enter:"It is really creepy in here. There is a **door on the left** and a **door on the right**"
+on room_enter:"It is really creepy in here. There is a **left_door** and a **right_door**"
 on left_door look:"It is halfway open and smoke is billowing out"
 on left_door.broken open:"It won't budge and its really hot"
 on left_door hit:"It opens up"->left_door.open
@@ -14,10 +14,11 @@ on left_door.open enter:"I walk through with smoke in my face"->goto room_2`
 document.addEventListener('alpine:init', () => {
   Alpine.store('lines', {
     init() {
-      let MyStory = new Story(mystring)
-      const result = MyStory.submit('room_enter')
-      this.send(result.text, {"door" : ['hi', 'he']})
+      this.MyStory = new Story(mystring)
+      const result = this.MyStory.submit('room_enter')
+      this.send(result.text, {"left_door" : ['open', 'look', 'hit', 'enter'], "right_door": ['fo', 'fum']})
     },
+    MyStory: null,
     lines: [],
     // Thanks to allain on Alpine.js Discord
     lineTokens(i) {
@@ -38,6 +39,8 @@ document.addEventListener('alpine:init', () => {
     },
     onSelect(action, object) {
       this.send(`You ${action} ${object}`)
+      const result = this.MyStory.submit(action, object)
+      this.send(result)
     },
     send(input, options) {
       this.lines.push({
