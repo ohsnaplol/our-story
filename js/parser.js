@@ -52,8 +52,10 @@ export default class Story {
         const [interactable, verb] = keyword.split(' ').filter(word => word != 'on')
         const [text, gameAction] = action.split(ACTION_DELIMITER)
         const [object, state] = interactable.split(STATE_VALUE_DELIMITER)
-        this.events[object] = {
-          state, verb, text: text.replaceAll("\"", ""), realAction
+        if (this.events[object]) {
+          this.events[object] = [ {verb, requiredState: state, text, gameAction}, ...this.events[object]]
+        } else {
+          this.events[object] =  [ { verb, requiredState: state, text, gameAction } ]
         }
       }
     });
