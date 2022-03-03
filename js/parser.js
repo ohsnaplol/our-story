@@ -53,9 +53,9 @@ export default class Story {
         const [text, gameAction] = action.split(ACTION_DELIMITER)
         const [object, state] = interactable.split(STATE_VALUE_DELIMITER)
         if (this.events[object]) {
-          this.events[object] = [ {verb, requiredState: state, text, gameAction}, ...this.events[object]]
+          this.events[object] = [ {verb, requiredState: state, text: text.replaceAll("\"", ""), gameAction}, ...this.events[object]]
         } else {
-          this.events[object] =  [ { verb, requiredState: state, text, gameAction } ]
+          this.events[object] =  [ { verb, requiredState: state, text: text.replaceAll("\"", ""), gameAction } ]
         }
       }
     });
