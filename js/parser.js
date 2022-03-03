@@ -50,7 +50,7 @@ export default class Story {
       }
       if (keyword.startsWith('on')) {
         const [interactable, verb] = keyword.split(' ').filter(word => word != 'on')
-        const [text, realAction] = action.split(ACTION_DELIMITER)
+        const [text, gameAction] = action.split(ACTION_DELIMITER)
         const [object, state] = interactable.split(STATE_VALUE_DELIMITER)
         this.events[object] = {
           state, verb, text: text.replaceAll("\"", ""), realAction
