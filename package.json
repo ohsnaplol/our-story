@@ -19,5 +19,8 @@
   "homepage": "https://github.com/ohsnaplol/our-story#readme",
   "devDependencies": {
     "@types/three": "^0.133.1"
+  },
+  "dependencies": {
+    "yaml": "^1.10.2"
   }
 }
