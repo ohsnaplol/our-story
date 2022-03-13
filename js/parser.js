@@ -63,12 +63,12 @@ export default class Story {
 
   submit(action, object) {
     // search through events array for object and its corresponding action
-    const { realACtion, state, text, verb } = this.events[action]
-    return { realACtion, state, text, verb }
     if (!this.events[action]) {
       console.error('No such event as', action)
       return;
     }
+    const { gameAction, requiredState, text, verb } = this.events[action][0]
+    return { gameAction, state: requiredState, text, verb }
   }
 }
 
