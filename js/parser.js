@@ -65,6 +65,10 @@ export default class Story {
     // search through events array for object and its corresponding action
     const { realACtion, state, text, verb } = this.events[action]
     return { realACtion, state, text, verb }
+    if (!this.events[action]) {
+      console.error('No such event as', action)
+      return;
+    }
   }
 }
 
