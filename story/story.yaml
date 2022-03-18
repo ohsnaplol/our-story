@@ -1,0 +1,20 @@
+
+states:
+- left_door: broken
+- right_door: open
+
+interactables:
+- left_door
+- right_door
+
+events:
+- room_enter: "It is really creepy in here. There is a ~left_door~ and a ~right_door~"
+- left_door:
+  - look: "It is halfway open and smoke is billowing out"
+  - broken:
+    - open: "It won't budge and its really hot"
+  - hit: "It opens up"
+    - set_left_door: "open" #set_ is a keyword
+  - open:
+    - enter: "I walk through with smoke in my face"
+      - goto: "room_2" #goto is a keyword
