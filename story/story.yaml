@@ -11,10 +11,12 @@ events:
 - room_enter: "It is really creepy in here. There is a ~left_door~ and a ~right_door~"
 - left_door:
   - look: "It is halfway open and smoke is billowing out"
-  - broken:
-    - open: "It won't budge and its really hot"
+  - open: 
+    - broken: "It won't budge and its really hot"
+    - not_broken: "It swings wide open"
+      - set_left_door: "open"
   - hit: "It opens up"
     - set_left_door: "open" #set_ is a keyword
-  - open:
-    - enter: "I walk through with smoke in my face"
-      - goto: "room_2" #goto is a keyword
+  - enter: "I walk through with smoke in my face"
+    - open:
+      - goto: "room_2" #goto is a keyword`
