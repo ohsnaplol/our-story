@@ -1,12 +1,8 @@
+import YAML from ".yaml";
+
 export default class Story {
 
   constructor(string) {
-    const COMMAND_DELIMITER = '\n'
-    const COMMENT_DELIMITER = '//'
-    const KEYWORD_DELIMITER = ':'
-    const STATE_VALUE_DELIMITER = '.'
-    const ACTION_DELIMITER = '->'
-
     // object with properties being the object and the value being the state
     this.state
     // array of objects
@@ -15,15 +11,8 @@ export default class Story {
     // used to print interactables, manage state changes on interactions, or call new objects (i.e. changing rooms)
     this.events = {}
 
-    // Split string up into an array of commands
-    const lines = string.split(COMMAND_DELIMITER);
-    // Remove commented lines from our array of commands
-    const cleanLines = lines.filter(line => {
-      if (line == '' || line.startsWith(COMMENT_DELIMITER)) {
-        return false;
-      }
-      return true;
-    })
+    const thing = YAML.parse(string)
+    console.log(thing)
     // Convert array of commands into an array of commands split up by the keyword delimiter
     const commands = cleanLines.map(line => {
       return line.split(KEYWORD_DELIMITER)
@@ -67,6 +56,7 @@ export default class Story {
       console.error('No such event as', action)
       return;
     }
+    console.log(this.events[action][0])
     const { gameAction, requiredState, text, verb } = this.events[action][0]
     return { gameAction, state: requiredState, text, verb }
   }
