@@ -6,11 +6,6 @@
 	let formValue = '';
 	const unsubscribe = linesStore.subscribe((value) => (lines = value));
 
-	function onSubmit() {
-		linesStore.update((lines) => [...lines, { text: formValue, options: { story: ['test'] } }]);
-		formValue = '';
-	}
-
   function onChoice(e) {
     console.log(e.target.value)
     const text = `You chose ${e.target.value}`
