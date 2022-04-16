@@ -41,21 +41,5 @@
 				</li>
 			{/each}
 		</ol>
-		<form on:submit|preventDefault={onSubmit}>
-			<input
-				bind:value={formValue}
-				autocomplete="off"
-				type="text"
-				id="text-input"
-				placeholder="Enter text here"
-			/>
-			<button
-				type="submit"
-				id="submit"
-				x-show="playerInput.length"
-				x-bind:disabled="playerInput.length < 0"
-				x-transition>Submit</button
-			>
-		</form>
 	</main>
 </div>
