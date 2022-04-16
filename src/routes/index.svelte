@@ -1,6 +1,7 @@
 <script>
 	import linesStore from '../store';
   import { onDestroy } from 'svelte'
+  import mystory from '$lib/story.yaml'
 
 	let lines = [{}];
 	let formValue = '';
