@@ -8,7 +8,7 @@ interactables:
 - right_door
 
 events:
- room_enter: "It is really creepy in here. There is a ~left_door~ and a ~right_door~"
+ room_enter: "It is really creepy in here. There is a left_door and a right_door"
  left_door:
   look: "It is halfway open and smoke is billowing out"
   open: 
